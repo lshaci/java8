@@ -16,6 +16,51 @@ public abstract class CopyObjectUtil {
 	 * 
 	 * @param source	源对象
 	 * @param target	目标对象类型
+	 * @return 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 */
+	public static <T> T copy(Object source, Class<T> target) 
+			throws InstantiationException, IllegalAccessException {
+		return copy(source, target, null, null, null);
+	}
+	
+	/**
+	 * 简单对象属性拷贝
+	 * 
+	 * @param source	源对象
+	 * @param target	目标对象类型
+	 * @param rename	需要重命名的字段(key: 源对象字段名, value: 目标对象字段名)
+	 * @return 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 */
+	public static <T> T copy(Object source, Class<T> target, Map<String, String> rename) 
+			throws InstantiationException, IllegalAccessException {
+		return copy(source, target, rename, null, null);
+	}
+	
+	/**
+	 * 简单对象属性拷贝
+	 * 
+	 * @param source	源对象
+	 * @param target	目标对象类型
+	 * @param rename	需要重命名的字段(key: 源对象字段名, value: 目标对象字段名)
+	 * @param extra		扩展参数(key: 目标对象字段名, value: 对应的值)
+	 * @return 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 */
+	public static <T> T copy(Object source, Class<T> target, Map<String, String> rename, Map<String, Object> extra) 
+			throws InstantiationException, IllegalAccessException {
+		return copy(source, target, rename, extra, null);
+	}
+	
+	/**
+	 * 简单对象属性拷贝
+	 * 
+	 * @param source	源对象
+	 * @param target	目标对象类型
 	 * @param rename	需要重命名的字段(key: 源对象字段名, value: 目标对象字段名)
 	 * @param extra		扩展参数(key: 目标对象字段名, value: 对应的值)
 	 * @param skips		不需要从源对象获取值的字段
