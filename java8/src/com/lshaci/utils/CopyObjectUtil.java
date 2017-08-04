@@ -22,7 +22,7 @@ public abstract class CopyObjectUtil {
 	 */
 	public static <T> T copy(Object source, Class<T> target) 
 			throws InstantiationException, IllegalAccessException {
-		return copy(source, target, null, null, null);
+		return copy(source, target, null);
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public abstract class CopyObjectUtil {
 	 */
 	public static <T> T copy(Object source, Class<T> target, Map<String, String> rename) 
 			throws InstantiationException, IllegalAccessException {
-		return copy(source, target, rename, null, null);
+		return copy(source, target, rename, null);
 	}
 	
 	/**
